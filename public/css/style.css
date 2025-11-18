@@ -1,0 +1,7 @@
+body {
+    font-family: "Righteous", cursive;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
