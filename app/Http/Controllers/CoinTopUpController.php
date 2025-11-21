@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Services\CoinTopUpService;
+use Illuminate\Support\Facades\Log;
 
 class CoinTopUpController extends Controller
 {
@@ -34,8 +36,9 @@ class CoinTopUpController extends Controller
 
     public function callback(Request $request)
     {
-        $json = json_decode($request->getContent());
+        Log::info("MIDTRANS CALLBACK MASUK:", $request->all());
 
+        $json = json_decode($request->getContent());
         $this->service->handleCallback($json);
 
         return response()->json(["success" => true]);

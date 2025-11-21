@@ -21,9 +21,6 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/topup/coin/{packageId}', [CoinTopUpController::class, 'topup'])
         ->middleware('auth');
-
-
-    Route::post('/midtrans/callback', [CoinTopUpController::class, 'callback']);
 });
 
 Route::get('login', [AuthController::class, 'loginForm'])->name('login');
@@ -31,3 +28,5 @@ Route::post('login', [AuthController::class, 'storeLogin'])->name('login.store')
 
 Route::get('register', [AuthController::class, 'registerForm'])->name('register');
 Route::post('register', [AuthController::class, 'storeRegister'])->name('register.store');
+
+Route::post('/midtrans/callback', [CoinTopUpController::class, 'callback']);
